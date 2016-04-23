@@ -14,7 +14,7 @@ public class badBullet : MonoBehaviour
     void Start()
     {
         // to prevent staying in scene for too long if hit nothing
-        Destroy(gameObject, 5.0f);
+        Destroy(gameObject, 3.0f);
     }
 
     void Update()

@@ -13,7 +13,10 @@ public class dummyBoss : MonoBehaviour
 
     public float rotateSpeed = 15.0f;
     public float fireSpeed = 0.5f;
+    public float switchDirTime = 1.0f;
 
+    int rotateDir = 1;
+    float switchTimer = 0.0f;
     float duration = 0.0f;
 
 	// Use this for initialization
@@ -35,8 +38,17 @@ public class dummyBoss : MonoBehaviour
             duration -= fireSpeed;
             FireBullets();
         }
+        switchTimer += Time.deltaTime;
+        if (switchTimer >= switchDirTime)
+        {
+            switchTimer -= switchDirTime;
+            rotateDir *= -1;
+        }
 
-        transform.Rotate(Vector3.up, rotateSpeed * Time.deltaTime);
+        transform.Rotate(Vector3.up, rotateDir * rotateSpeed * Time.deltaTime);
+        //spawns[0].position = 
+        //float deg = Vector3.Angle(Vector3.forward, new Vector3(transform.forward.x, 0.0f, transform.forward.z));
+        //spawns[0].transform.localEulerAngles = new Vector3(0.0f, deg, 0.0f);
 	}
 
     void OnCollisionEnter(Collision other)
@@ -59,8 +71,8 @@ public class dummyBoss : MonoBehaviour
         for (int i = 0; i < spawns.Length; ++i)
         {
             Transform t = spawns[i];
-            GameObject obj = (GameObject)Instantiate(enemyBullet, t.position, t.rotation);
-            obj.GetComponent<badBullet>().direction = t.forward;
+            GameObject obj = (GameObject)Instantiate(enemyBullet, t.position, Quaternion.identity);
+            obj.GetComponent<badBullet>().direction = Vector3.Normalize(t.position - transform.position);
         }
     }
 }
