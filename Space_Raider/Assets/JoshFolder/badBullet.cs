@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class explodey : MonoBehaviour 
+public class badBullet : MonoBehaviour 
 {
 
     public Vector3 direction;
@@ -13,8 +13,6 @@ public class explodey : MonoBehaviour
 
     void Start()
     {
-        djScript.sounds.PlayOneShot(fire);
-
         // to prevent staying in scene for too long if hit nothing
         Destroy(gameObject, 5.0f);
     }
@@ -27,7 +25,7 @@ public class explodey : MonoBehaviour
 
     void OnCollisionEnter(Collision other)
     {
-        if(other.transform.tag == "Enemy")
+        if (other.transform.tag == "Player")
         {
             Object obj = Instantiate(explosion, this.transform.position, this.transform.rotation);
             Destroy(obj, 0.5f);

@@ -7,16 +7,36 @@ public class dummyBoss : MonoBehaviour
 
     public GameObject explosion;
 
+    public GameObject enemyBullet;
+
+    public Transform[] spawns = new Transform[6];
+
+    public float rotateSpeed = 15.0f;
+    public float fireSpeed = 0.5f;
+
+    float duration = 0.0f;
+
 	// Use this for initialization
 	void Start () 
     {
-	
+        //int i = 0;
+	    //foreach (Transform child in GetComponentInChildren<Transform>())
+        //{
+        //    spawns[i++] = child;
+        //}
 	}
 	
 	// Update is called once per frame
 	void Update () 
     {
-	
+        duration += Time.deltaTime;
+        if (duration >= fireSpeed)
+        {
+            duration -= fireSpeed;
+            FireBullets();
+        }
+
+        transform.Rotate(Vector3.up, rotateSpeed * Time.deltaTime);
 	}
 
     void OnCollisionEnter(Collision other)
@@ -31,6 +51,16 @@ public class dummyBoss : MonoBehaviour
                 Destroy(obj, 1);
                 Destroy(gameObject);
             }
+        }
+    }
+
+    void FireBullets()
+    {
+        for (int i = 0; i < spawns.Length; ++i)
+        {
+            Transform t = spawns[i];
+            GameObject obj = (GameObject)Instantiate(enemyBullet, t.position, t.rotation);
+            obj.GetComponent<badBullet>().direction = t.forward;
         }
     }
 }

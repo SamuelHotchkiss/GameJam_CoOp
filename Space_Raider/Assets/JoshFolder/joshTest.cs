@@ -4,8 +4,10 @@ using System.Collections;
 public class joshTest : MonoBehaviour 
 {
     public float speed = 2.0f;
+    public int health = 5;
 
     public GameObject bullet;
+    public Transform bulletSpawn;
 
 	// Use this for initialization
 	void Start () 
@@ -25,8 +27,22 @@ public class joshTest : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            GameObject b = (GameObject)Instantiate(bullet, this.transform.position, this.transform.rotation);
+            GameObject b = (GameObject)Instantiate(bullet, bulletSpawn.position, Quaternion.identity);
             b.GetComponent<explodey>().direction = this.transform.forward;
         }
 	}
+
+    void OnCollisionEnter(Collision other)
+    {
+        if (other.transform.tag == "EnemyBullet")
+        {
+            health--;
+            Destroy(other.gameObject);
+
+            if (health <= 0)
+            {
+                Destroy(gameObject);
+            }
+        }
+    }
 }
