@@ -90,7 +90,10 @@ public class TestScript : MonoBehaviour
 	{
 		if (Mathf.Abs(_x) >= 0.0f || Mathf.Abs(_z) > 0.0f)
 		{
-			transform.Translate(new Vector3(_x, 0.0f, _z) * moveSpeed * Time.deltaTime);
+			//Vector3 old = transform.position;
+			Vector3 dir = new Vector3(_x, 0.0f, _z) * moveSpeed * Time.deltaTime;
+			transform.LookAt(transform.position + dir);
+			transform.Translate(dir, Space.World);
 		}
 	}
 
@@ -98,11 +101,21 @@ public class TestScript : MonoBehaviour
 	{
 		if (satellite)
 		{
-			float deg;
+			float deg = 0.0f;
 			Vector3 me;//, rot;
 			me = transform.position;
-			satellite.transform.position = (new Vector3((orbitDistance * _x) + me.x, 0, (orbitDistance * _z) + me.z));
-			deg = Vector3.Angle(Vector3.forward, new Vector3(_x, 0.0f, _z));
+			if (Mathf.Abs(_x) > 0.25f
+				|| Mathf.Abs(_z) > 0.25f)
+			{
+				satellite.transform.position = (new Vector3((orbitDistance * _x) + me.x, 0, (orbitDistance * _z) + me.z));
+				deg = Vector3.Angle(Vector3.forward, new Vector3(_x, 0.0f, _z));
+			}
+			else
+			{
+				satellite.transform.position = (new Vector3((orbitDistance * transform.forward.x) + me.x, 0, (orbitDistance * transform.forward.z) + me.z));
+				deg = Vector3.Angle(Vector3.forward, new Vector3(transform.forward.x, 0.0f, transform.forward.z));
+			}
+
 			if (satellite.transform.position.x < me.x)
 				deg = -deg;
 			satellite.transform.localEulerAngles = new Vector3(270.0f, deg, 0.0f);
