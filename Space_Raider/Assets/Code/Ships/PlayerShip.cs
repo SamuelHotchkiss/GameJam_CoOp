@@ -3,21 +3,18 @@ using System.Collections;
 
 public class PlayerShip : MonoBehaviour
 {
-	public int playerNum;
+	protected float fireCool;
+	protected string control;
+	protected Vector3 moveVec;
+	protected Vector3 aimVec;
 
+	public int playerNum;
 	public float maxHP, currHP, damage, fireCoolMax;
 
-	float fireCool;
-
-	public float moveSpeed, orbitDistance;
 	public GameObject aimReticule, bullet;
+	public float moveSpeed, orbitDistance;
 
-	string control;
-	Vector3 moveVec;
-	Vector3 aimVec;
-
-	// Use this for initialization
-	void Start()
+	protected virtual void Init()
 	{
 		djScript.sounds = GameObject.FindGameObjectWithTag("dj").GetComponent<AudioSource>();
 
@@ -35,29 +32,36 @@ public class PlayerShip : MonoBehaviour
 		currHP = maxHP;
 		moveVec = Vector3.zero;
 		aimVec = Vector3.zero;
+
+		aimReticule = (GameObject)Instantiate(aimReticule);
+	}
+
+	// Use this for initialization
+	void Start()
+	{
+		Init();
 	}
 
 	// Update is called once per frame
-	void Update()
+	protected virtual void Update()
 	{
+		if (currHP <= 0.0f)
+			Die();
+
 		if (fireCool > 0.0f)
 			fireCool -= Time.deltaTime;
 
 		moveVec.x = Input.GetAxis(control + "LeftX");
-		moveVec.z = Input.GetAxis(control + "LeftY");
+		moveVec.z = -Input.GetAxis(control + "LeftY");
 		aimVec.x = Input.GetAxis(control + "RightX");
-		aimVec.z = Input.GetAxis(control + "RightY");
+		aimVec.z = -Input.GetAxis(control + "RightY");
 
-		HandleMoveInput(moveVec.x, -moveVec.z);
-		HandleAimInput(aimVec.x, -aimVec.z);
-        float axis = Input.GetAxis(control + "RTrigger");
-        Debug.Log(axis);
-        if (axis > 0.0f
-            && fireCool <= 0.0f)
-        { 
+		HandleMoveInput(moveVec.x, moveVec.z);
+		HandleAimInput(aimVec.x, aimVec.z);
+
+		if (Input.GetAxis(control + "RTrigger") < 0.0f
+			&& fireCool <= 0.0f)
 			Fire();
-        }
-
 	}
 
 	void HandleMoveInput(float _x, float _z)
@@ -107,6 +111,27 @@ public class PlayerShip : MonoBehaviour
 		else
 		{
 			Debug.Log("Player_" + playerNum + " has no bullets to fire!");
+		}
+	}
+
+	void Die()
+	{
+		GameManager gm = GameObject.FindGameObjectWithTag("gm").GetComponent<GameManager>();
+		if (gm)
+		{
+			gm.PlayerDied();
+		}
+		else
+			Debug.Log("No GM found!");
+
+		Destroy(gameObject);
+	}
+
+	void OnCollisionEnter(Collision other)
+	{
+		if(other.gameObject.tag == "EnemyBullet")
+		{
+			currHP--;
 		}
 	}
 }
