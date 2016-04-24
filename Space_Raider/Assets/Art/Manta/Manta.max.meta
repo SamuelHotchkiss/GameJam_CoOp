@@ -1,0 +1,183 @@
+fileFormatVersion: 2
+guid: 5e0abedecbf32b04ab80668fb0871560
+timeCreated: 1461517528
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Cylinder04
+    100002: Cylinder05
+    100004: Cylinder06
+    100006: Cylinder07
+    100008: Cylinder09
+    100010: Cylinder10
+    100012: Cylinder11
+    100014: Cylinder12
+    100016: Laser-Back
+    100018: Laser-Out
+    100020: Laser-Spring
+    100022: Left Chassi
+    100024: Left motor
+    100026: Left Wing
+    100028: //RootNode
+    100030: Middle Left Wing
+    100032: Middle Right Wing
+    100034: Plate for left motor
+    100036: Plate for right motor
+    100038: Right Chassi
+    100040: Right motor
+    100042: Right Wing
+    100044: STICKS FOR LEFT MOTOR
+    100046: STICKS FOR RIGHT MOTOR
+    400000: Cylinder04
+    400002: Cylinder05
+    400004: Cylinder06
+    400006: Cylinder07
+    400008: Cylinder09
+    400010: Cylinder10
+    400012: Cylinder11
+    400014: Cylinder12
+    400016: Laser-Back
+    400018: Laser-Out
+    400020: Laser-Spring
+    400022: Left Chassi
+    400024: Left motor
+    400026: Left Wing
+    400028: //RootNode
+    400030: Middle Left Wing
+    400032: Middle Right Wing
+    400034: Plate for left motor
+    400036: Plate for right motor
+    400038: Right Chassi
+    400040: Right motor
+    400042: Right Wing
+    400044: STICKS FOR LEFT MOTOR
+    400046: STICKS FOR RIGHT MOTOR
+    2300000: Cylinder04
+    2300002: Cylinder05
+    2300004: Cylinder06
+    2300006: Cylinder07
+    2300008: Cylinder09
+    2300010: Cylinder10
+    2300012: Cylinder11
+    2300014: Cylinder12
+    2300016: Laser-Back
+    2300018: Laser-Out
+    2300020: Laser-Spring
+    2300022: Left Chassi
+    2300024: Left motor
+    2300026: Left Wing
+    2300028: Middle Left Wing
+    2300030: Middle Right Wing
+    2300032: Plate for left motor
+    2300034: Plate for right motor
+    2300036: Right Chassi
+    2300038: Right motor
+    2300040: Right Wing
+    3300000: Cylinder04
+    3300002: Cylinder05
+    3300004: Cylinder06
+    3300006: Cylinder07
+    3300008: Cylinder09
+    3300010: Cylinder10
+    3300012: Cylinder11
+    3300014: Cylinder12
+    3300016: Laser-Back
+    3300018: Laser-Out
+    3300020: Laser-Spring
+    3300022: Left Chassi
+    3300024: Left motor
+    3300026: Left Wing
+    3300028: Middle Left Wing
+    3300030: Middle Right Wing
+    3300032: Plate for left motor
+    3300034: Plate for right motor
+    3300036: Right Chassi
+    3300038: Right motor
+    3300040: Right Wing
+    4300000: Laser-Back
+    4300002: Laser-Spring
+    4300004: Laser-Out
+    4300006: Right Chassi
+    4300008: Left Wing
+    4300010: Right Wing
+    4300012: Left Chassi
+    4300014: Middle Left Wing
+    4300016: Middle Right Wing
+    4300018: Plate for right motor
+    4300020: Left motor
+    4300022: Cylinder04
+    4300024: Cylinder05
+    4300026: Cylinder06
+    4300028: Cylinder07
+    4300030: Plate for left motor
+    4300032: Right motor
+    4300034: Cylinder12
+    4300036: Cylinder09
+    4300038: Cylinder10
+    4300040: Cylinder11
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.2
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
