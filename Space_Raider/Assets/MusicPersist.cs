@@ -16,7 +16,7 @@ public class MusicPersist : MonoBehaviour
     }
     void OnLevelWasLoaded(int level)
     {
-        if (level >= 2)
+        if (level > 2)
             DestroyImmediate(gameObject);
         else if (!GetComponentInParent<AudioSource>().isPlaying)
             GetComponent<AudioSource>().Play();

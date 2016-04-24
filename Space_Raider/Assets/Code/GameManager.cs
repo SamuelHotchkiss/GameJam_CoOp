@@ -4,7 +4,7 @@ using System.Collections;
 
 public class GameManager : MonoBehaviour 
 {
-    public GameObject[] players;
+    public GameObject[] players = new GameObject[4];
     int playerCount;
 
     public GameObject youSuck;
@@ -14,8 +14,8 @@ public class GameManager : MonoBehaviour
 
 	void Start () 
     {
-        players = GameObject.FindGameObjectsWithTag("Player");
-        playerCount = players.Length;
+        //players = GameObject.FindGameObjectsWithTag("Player");
+        //playerCount = players.Length;
 	}
 	
 	void Update () 
@@ -41,5 +41,29 @@ public class GameManager : MonoBehaviour
     {
         youWin.SetActive(true);
         gameOver = true;
+    }
+
+    void OnLevelWasLoaded(int level)
+    {
+        if (PlayerCount.p1)
+        {
+            players[0].SetActive(true);
+            playerCount++;
+        }
+        if (PlayerCount.p2)
+        {
+            players[1].SetActive(true);
+            playerCount++;
+        }
+        if (PlayerCount.p3)
+        {
+            players[2].SetActive(true);
+            playerCount++;
+        }
+        if (PlayerCount.p4)
+        {
+            players[3].SetActive(true);
+            playerCount++;
+        }
     }
 }
