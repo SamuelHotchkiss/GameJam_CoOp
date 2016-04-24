@@ -19,7 +19,7 @@ public class PlayerShip : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
-		djScript.sounds = GameObject.FindGameObjectWithTag("dj").GetComponent<AudioSource>();
+		//djScript.sounds = GameObject.FindGameObjectWithTag("dj").GetComponent<AudioSource>();
 
 		control = "Joy" + playerNum + "_";
 		if (moveSpeed == 0.0f)
