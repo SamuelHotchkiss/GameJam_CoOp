@@ -51,7 +51,7 @@ public class PlayerShip : MonoBehaviour
 		HandleMoveInput(moveVec.x, -moveVec.z);
 		HandleAimInput(aimVec.x, -aimVec.z);
 
-		if (Input.GetAxis(control + "RTrigger") > 0.0f
+		if (Input.GetAxis(control + "RTrigger") < 0.0f
 			&& fireCool <= 0.0f)
 			Fire();
 	}
@@ -76,12 +76,12 @@ public class PlayerShip : MonoBehaviour
 			if (Mathf.Abs(_x) > 0.25f
 				|| Mathf.Abs(_z) > 0.25f)
 			{
-				aimReticule.transform.position = (new Vector3((orbitDistance * _x) + me.x, 0, (orbitDistance * _z) + me.z));
+				aimReticule.transform.position = (new Vector3((orbitDistance * _x) + me.x, me.y, (orbitDistance * _z) + me.z));
 				deg = Vector3.Angle(Vector3.forward, new Vector3(_x, 0.0f, _z));
 			}
 			else
 			{
-				aimReticule.transform.position = (new Vector3((orbitDistance * transform.forward.x) + me.x, 0, (orbitDistance * transform.forward.z) + me.z));
+				aimReticule.transform.position = (new Vector3((orbitDistance * transform.forward.x) + me.x, me.y, (orbitDistance * transform.forward.z) + me.z));
 				deg = Vector3.Angle(Vector3.forward, new Vector3(transform.forward.x, 0.0f, transform.forward.z));
 			}
 
