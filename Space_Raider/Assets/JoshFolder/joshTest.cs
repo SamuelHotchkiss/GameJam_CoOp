@@ -41,6 +41,11 @@ public class joshTest : MonoBehaviour
 
             if (health <= 0)
             {
+                GameObject gm = GameObject.FindWithTag("gm");
+                if (gm)
+                    gm.GetComponent<GameManager>().PlayerDied();
+                else
+                    Debug.Log("Could not find gm tag", gameObject);
                 Destroy(gameObject);
             }
         }
