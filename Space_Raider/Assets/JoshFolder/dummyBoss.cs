@@ -3,7 +3,7 @@ using System.Collections;
 
 public class dummyBoss : MonoBehaviour
 {
-    public int health = 5;
+    public float health = 5;
 
     public GameObject explosion;
 
@@ -55,7 +55,7 @@ public class dummyBoss : MonoBehaviour
     {
         if (other.gameObject.tag == "PlayerBullet" )
         {
-            health -= (int)other.gameObject.GetComponent<explodey>().damage;
+            health -= other.gameObject.GetComponent<explodey>().damage;
             Destroy(other.gameObject);
             if (health <= 0)
             {
