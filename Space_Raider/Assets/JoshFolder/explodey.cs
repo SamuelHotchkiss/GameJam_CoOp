@@ -13,7 +13,7 @@ public class explodey : MonoBehaviour
 
     void Start()
     {
-        djScript.sounds.PlayOneShot(fire);
+        //djScript.sounds.PlayOneShot(fire);
 
         // to prevent staying in scene for too long if hit nothing
         Destroy(gameObject, 5.0f);
@@ -31,6 +31,8 @@ public class explodey : MonoBehaviour
         {
             Object obj = Instantiate(explosion, this.transform.position, this.transform.rotation);
             Destroy(obj, 0.5f);
+
+			Destroy(gameObject);
         }
     }
 }
