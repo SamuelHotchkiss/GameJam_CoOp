@@ -11,7 +11,7 @@ public class Protector : PlayerShip
     protected override void Init()
     {
         base.Init();
-        Shield.GetComponent<Collider>().enabled = false;
+		Shield.GetComponent<BoxCollider>().enabled = false;
         Shield.GetComponent<Renderer>().enabled = false;
     
     }
@@ -27,18 +27,18 @@ public class Protector : PlayerShip
             if(Energy >= 0 && !Regin)
             {
                 Energy -= 20 * Time.deltaTime;
-                Shield.GetComponent<Collider>().enabled = true;
+                Shield.GetComponent<BoxCollider>().enabled = true;
                 Shield.GetComponent<Renderer>().enabled = true;
             }
             else
             {
-                Shield.GetComponent<Collider>().enabled = false;
+				Shield.GetComponent<BoxCollider>().enabled = false;
                 Shield.GetComponent<Renderer>().enabled = false;
             }
         }
         else
         {
-            Shield.GetComponent<Collider>().enabled = false;
+			Shield.GetComponent<BoxCollider>().enabled = false;
             Shield.GetComponent<Renderer>().enabled = false;
         }
 

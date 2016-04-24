@@ -21,6 +21,9 @@ public class HP : MonoBehaviour
 		else
 			player = false;
 
+		if (!target.active)
+			gameObject.SetActive(false);
+
 		ogScale = healthBar.transform.localScale;
 	}
 	
