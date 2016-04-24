@@ -65,7 +65,8 @@ public class HeavyHitter : PlayerShip
 			if (Physics.Raycast(ray, out hit, 100, laserMask))
 			{
 				line.SetPosition(1, hit.point);
-				hit.collider.gameObject.GetComponent<dummyBoss>().health -= superBaseDamage;
+				//hit.collider.gameObject.GetComponent<dummyBoss>().health -= superBaseDamage;
+				hit.collider.gameObject.GetComponent<bossBehavior>().DealDamage(superBaseDamage);
 				GameObject b = (GameObject)Instantiate(splode, hit.point, Quaternion.identity);
 				Destroy(b, 0.5f);
 			}
