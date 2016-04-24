@@ -6,6 +6,7 @@ public class explodey : MonoBehaviour
 
     public Vector3 direction;
     public float speed;
+	public float damage;
 
     public GameObject explosion;
     public AudioClip fire;
@@ -13,7 +14,7 @@ public class explodey : MonoBehaviour
 
     void Start()
     {
-        //djScript.sounds.PlayOneShot(fire);
+        djScript.sounds.PlayOneShot(fire);
 
         // to prevent staying in scene for too long if hit nothing
         Destroy(gameObject, 5.0f);

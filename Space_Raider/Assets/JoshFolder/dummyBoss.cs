@@ -55,7 +55,7 @@ public class dummyBoss : MonoBehaviour
     {
         if (other.gameObject.tag == "PlayerBullet" )
         {
-            --health;
+            health -= (int)other.gameObject.GetComponent<explodey>().damage;
             Destroy(other.gameObject);
             if (health <= 0)
             {

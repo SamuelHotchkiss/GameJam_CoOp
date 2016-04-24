@@ -19,6 +19,8 @@ public class PlayerShip : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
+		djScript.sounds = GameObject.FindGameObjectWithTag("dj").GetComponent<AudioSource>();
+
 		control = "Joy" + playerNum + "_";
 		if (moveSpeed == 0.0f)
 			moveSpeed = 5.0f;
@@ -95,6 +97,7 @@ public class PlayerShip : MonoBehaviour
 		{
 			fireCool = fireCoolMax;
 			GameObject b = (GameObject)Instantiate(bullet, aimReticule.transform.position, Quaternion.identity);
+			b.GetComponent<explodey>().damage = damage;
 			b.GetComponent<explodey>().direction = aimReticule.transform.position - transform.position;
 		}
 		else
