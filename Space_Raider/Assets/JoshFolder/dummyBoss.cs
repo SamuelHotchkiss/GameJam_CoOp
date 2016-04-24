@@ -61,6 +61,11 @@ public class dummyBoss : MonoBehaviour
             {
                 Object obj = Instantiate(explosion, this.transform.position, this.transform.rotation);
                 Destroy(obj, 1);
+                GameObject gm = GameObject.FindWithTag("gm");
+                if (gm)
+                    gm.GetComponent<GameManager>().BossDied();
+                else
+                    Debug.Log("Unable to find gm tag", gameObject);
                 Destroy(gameObject);
             }
         }
