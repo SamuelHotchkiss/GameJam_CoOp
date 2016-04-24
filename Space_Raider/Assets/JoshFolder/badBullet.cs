@@ -25,7 +25,7 @@ public class badBullet : MonoBehaviour
 
     void OnCollisionEnter(Collision other)
     {
-        if (other.transform.tag == "Player")
+        if (other.transform.tag == "Player" || other.gameObject.tag == "Shield")
         {
             Object obj = Instantiate(explosion, this.transform.position, this.transform.rotation);
             Destroy(obj, 0.5f);

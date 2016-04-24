@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: ac5e04f21ef8f214486ab2bb9b0a4f93
-timeCreated: 1461526136
+guid: c89685d25085bcc478cb315dea30dc78
+timeCreated: 1461532716
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -9,7 +9,7 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: pTorus1
+    4300000: pSphere1
     9500000: //RootNode
   materials:
     importMaterials: 1
