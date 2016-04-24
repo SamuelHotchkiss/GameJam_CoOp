@@ -70,7 +70,8 @@ public class PlayerShip : MonoBehaviour
 			|| Mathf.Abs(_z) > 0.0f)
 		{
 			Vector3 move = new Vector3(_x, 0.0f, _z) * moveSpeed * Time.deltaTime;
-			transform.LookAt(transform.position + move);
+			if(aimVec.magnitude < 0.1f)
+				transform.LookAt(transform.position + move);
 			transform.Translate(move, Space.World);
 		}
 	}
@@ -85,6 +86,7 @@ public class PlayerShip : MonoBehaviour
 				|| Mathf.Abs(_z) > 0.25f)
 			{
 				aimReticule.transform.position = (new Vector3((orbitDistance * _x) + me.x, me.y, (orbitDistance * _z) + me.z));
+				transform.LookAt(aimReticule.transform);
 				deg = Vector3.Angle(Vector3.forward, new Vector3(_x, 0.0f, _z));
 			}
 			else

@@ -10,6 +10,7 @@ public class HeavyHitter : PlayerShip
 
 	public float chargeLimit, superBaseDamage;
 	public LayerMask laserMask;
+	public GameObject splode;
 
 	// Use this for initialization
 	//void Start () 
@@ -40,12 +41,19 @@ public class HeavyHitter : PlayerShip
 		}
 	}
 
+	IEnumerator ChargeLaser()
+	{
+
+		yield return null;
+	}
+
 	IEnumerator Lazer()
 	{
 		line.enabled = true;
 
 		while (Input.GetAxis(control + "LTrigger") > 0.0f)
 		{
+			line.material.mainTextureOffset = new Vector2(-Time.time * 5.0f, 0.0f);
 			Ray ray = new Ray(transform.position, transform.forward);
 			RaycastHit hit;
 
@@ -58,6 +66,8 @@ public class HeavyHitter : PlayerShip
 			{
 				line.SetPosition(1, hit.point);
 				hit.collider.gameObject.GetComponent<dummyBoss>().health -= superBaseDamage;
+				GameObject b = (GameObject)Instantiate(splode, hit.point, Quaternion.identity);
+				Destroy(b, 0.5f);
 			}
 			else
 				line.SetPosition(1, ray.GetPoint(100));
